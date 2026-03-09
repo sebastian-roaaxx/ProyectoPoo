@@ -11,7 +11,6 @@ public class App {
         equipo1.registrar();
 
 
-        System.out.println("HOLA CAMBIASTE EL CODIGO");
 
         
     }
