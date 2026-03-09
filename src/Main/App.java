@@ -14,6 +14,7 @@ public class App {
         System.out.println("HOLA CAMBIASTE EL CODIGO");
 
         System.out.println("ROITAPERRA");
+        System.err.println("ESTO ES UN ERROR joam hp");
         
     }
     
