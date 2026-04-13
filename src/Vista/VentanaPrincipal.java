@@ -3,48 +3,53 @@ package Vista;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.ArrayList;
 import modelo.*;
 
 public class VentanaPrincipal {
 
     private DefaultTableModel modeloOrdenes;
-    private OrdenMantenimiento orden;
+    private ArrayList<OrdenMantenimiento> ordenes = new ArrayList<>();
 
     public VentanaPrincipal() {
 
-        //  VENTANA
-        JFrame ventana = new JFrame("Sistema de Mantenimiento");
+        JFrame ventana = new JFrame("Sistema de Mantenimiento PRO");
         ventana.setSize(800, 500);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setLayout(new BorderLayout());
 
-        // COLORES
-        Color fondo = new Color(245, 245, 245);
-        Color barra = new Color(33, 37, 41);
-        Color botonColor = new Color(0, 123, 255);
-
-        //  BARRA SUPERIOR
+        // 🔝 BARRA SUPERIOR
         JPanel top = new JPanel();
-        top.setBackground(barra);
+        top.setBackground(new Color(33, 37, 41));
         top.setPreferredSize(new Dimension(800, 60));
 
         JLabel titulo = new JLabel("Sistema de Mantenimiento");
         titulo.setForeground(Color.WHITE);
         titulo.setFont(new Font("Segoe UI", Font.BOLD, 20));
-
         top.add(titulo);
 
-        //  PANEL CENTRAL
-        JPanel centro = new JPanel();
-        centro.setBackground(fondo);
-        centro.setLayout(null);
+        // 📊 PANEL CENTRAL
+        JPanel centro = new JPanel(null);
+        centro.setBackground(new Color(245, 245, 245));
 
-        //  DATOS
-        Tecnico t1 = new Tecnico("Carlos", "123", "Computadores");
+        // 🔹 DATOS
+        Tecnico t1 = new Tecnico("Carlos", "123", "PC");
+        Tecnico t2 = new Tecnico("Tobias", "456", "Redes");
+        Tecnico t3 = new Tecnico("Ana", "789", "Software");
+
         Equipo e1 = new Equipo("Laptop");
-        orden = new OrdenMantenimiento(e1, t1);
+        Equipo e2 = new Equipo("Impresora");
+        Equipo e3 = new Equipo("Servidor");
 
-        //  TABLA
+        OrdenMantenimiento o1 = new OrdenMantenimiento(e1, t1);
+        OrdenMantenimiento o2 = new OrdenMantenimiento(e2, t2);
+        OrdenMantenimiento o3 = new OrdenMantenimiento(e3, t3);
+
+        ordenes.add(o1);
+        ordenes.add(o2);
+        ordenes.add(o3);
+
+        // 🟦 TABLA
         modeloOrdenes = new DefaultTableModel();
         modeloOrdenes.addColumn("Nombre");
         modeloOrdenes.addColumn("ID");
@@ -58,39 +63,50 @@ public class VentanaPrincipal {
         JScrollPane scroll = new JScrollPane(tabla);
         scroll.setBounds(50, 50, 680, 200);
 
-        // DATOS INICIALES
-        modeloOrdenes.addRow(new Object[]{
-                t1.getNombre(),
-                t1.getId(),
-                e1.getNombre(),
-                "Pendiente"
-        });
+        // 📌 LLENAR TABLA
+        for (OrdenMantenimiento o : ordenes) {
+            modeloOrdenes.addRow(new Object[]{
+                    o.getTecnico().getNombre(),
+                    o.getTecnico().getId(),
+                    o.getEquipo().getNombre(),
+                    o.getEstado()
+            });
+        }
 
-        //  BOTONES
+        // 🔘 BOTONES
         JButton iniciar = new JButton("Iniciar");
         iniciar.setBounds(200, 300, 150, 40);
-        iniciar.setBackground(botonColor);
+        iniciar.setBackground(new Color(0, 123, 255));
         iniciar.setForeground(Color.WHITE);
-        iniciar.setFocusPainted(false);
 
         JButton finalizar = new JButton("Finalizar");
         finalizar.setBounds(400, 300, 150, 40);
         finalizar.setBackground(new Color(40, 167, 69));
         finalizar.setForeground(Color.WHITE);
-        finalizar.setFocusPainted(false);
 
         // ⚡ EVENTOS
         iniciar.addActionListener(e -> {
-            orden.iniciar();
-            actualizarEstado();
+            int fila = tabla.getSelectedRow();
+
+            if (fila != -1) {
+                ordenes.get(fila).iniciar();
+                actualizarTabla();
+            } else {
+                JOptionPane.showMessageDialog(null, "Selecciona una fila");
+            }
         });
 
         finalizar.addActionListener(e -> {
-            orden.finalizar();
-            actualizarEstado();
+            int fila = tabla.getSelectedRow();
+
+            if (fila != -1) {
+                ordenes.get(fila).finalizar();
+                actualizarTabla();
+            } else {
+                JOptionPane.showMessageDialog(null, "Selecciona una fila");
+            }
         });
 
-        // 📦 AGREGAR COMPONENTES
         centro.add(scroll);
         centro.add(iniciar);
         centro.add(finalizar);
@@ -101,8 +117,9 @@ public class VentanaPrincipal {
         ventana.setVisible(true);
     }
 
-    //  ACTUALIZAR TABLA
-    private void actualizarEstado() {
-        modeloOrdenes.setValueAt(orden.getEstado(), 0, 3);
+    private void actualizarTabla() {
+        for (int i = 0; i < ordenes.size(); i++) {
+            modeloOrdenes.setValueAt(ordenes.get(i).getEstado(), i, 3);
+        }
     }
 }
