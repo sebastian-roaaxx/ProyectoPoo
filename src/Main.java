@@ -4,6 +4,7 @@ import modelo.Equipo;
 import modelo.OrdenMantenimiento;
 import modelo.Tecnico;
 public class Main {
+    // ACA ARRANCA TODO
     public static void main(String[] args) {
 
         new VentanaPrincipal();
