@@ -1,5 +1,4 @@
 
-
 import Vista.VentanaPrincipal;
 import modelo.Equipo;
 import modelo.OrdenMantenimiento;
