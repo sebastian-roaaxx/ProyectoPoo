@@ -4,7 +4,7 @@ import modelo.Equipo;
 import modelo.OrdenMantenimiento;
 import modelo.Tecnico;
 public class Main {
-    // ACA ARRANCA TODO EL CODIGO
+    // ACA ARRANCA TODO EL CODIGO xd
     public static void main(String[] args) {
 
         new VentanaPrincipal();
