@@ -5,7 +5,7 @@ import ClasesAbstractas.Equipo;
 public class Computador extends Equipo {
 
     public Computador(String nombre) {
-        super(nombre);
+        super(nombre, "Computador");
     }
 
     public void tipo() {

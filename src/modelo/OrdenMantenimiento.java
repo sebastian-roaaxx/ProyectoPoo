@@ -59,6 +59,14 @@ implements Asignable, Calculable, Priorizable, Reportable {
         return presupuesto;
     }
 
+    public double calcularCostoConDescuento() {
+        double descuento = 0;
+        if (presupuesto > 100000) {
+            descuento = presupuesto * 0.05; // 5% descuento si presupuesto > 100000
+        }
+        return presupuesto - descuento;
+    }
+
     public void setPrioridad(String p) {
         prioridad = p;
     }

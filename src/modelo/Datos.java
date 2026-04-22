@@ -9,8 +9,8 @@ public class Datos {
 
     // Técnicos precargados
     static {
-        tecnicos.add(new Tecnico("Carlos", 5, 50000));
-        tecnicos.add(new Tecnico("Ana", 10, 90000));
-        tecnicos.add(new Tecnico("Luis", 3, 30000));
+        tecnicos.add(new Tecnico("Carlos", 5, 50000, "Computador"));
+        tecnicos.add(new Tecnico("Ana", 10, 90000, "Impresora"));
+        tecnicos.add(new Tecnico("Luis", 3, 30000, "General"));
     }
 }

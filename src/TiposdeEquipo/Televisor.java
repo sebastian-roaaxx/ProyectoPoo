@@ -4,7 +4,7 @@ import ClasesAbstractas.Equipo;
 
 public class Televisor extends Equipo {
     public Televisor(String nombre) {
-        super(nombre);
+        super(nombre, "Televisor");
     }
 
     public void tipo() {

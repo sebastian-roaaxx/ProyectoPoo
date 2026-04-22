@@ -10,12 +10,14 @@ import java.awt.*;
 public class VentanaPrincipal {
 
     private DefaultTableModel modelo;
+    private JFrame v; // Hacer v un campo para usar en dialogs
+    private JTextArea logArea; // Área para mostrar mensajes
 
     public VentanaPrincipal() {
 
         // 🎯 FRAME
-        JFrame v = new JFrame("Sistema de Mantenimiento");
-        v.setSize(900,550);
+        v = new JFrame("Sistema de Mantenimiento");
+        v.setSize(900,600); // Aumentar altura para logs
         v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         v.setLayout(new BorderLayout());
 
@@ -91,6 +93,15 @@ public class VentanaPrincipal {
         botones.add(iniciar);
         botones.add(finalizar);
 
+        // 📝 LOGS
+        logArea = new JTextArea(5, 50);
+        logArea.setEditable(false);
+        logArea.setBackground(new Color(40, 44, 52));
+        logArea.setForeground(Color.WHITE);
+        logArea.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        JScrollPane logScroll = new JScrollPane(logArea);
+        logScroll.setBorder(BorderFactory.createTitledBorder("Mensajes del Sistema"));
+
         // ⚡ EVENTOS
 
         btnAgregar.addActionListener(e -> {
@@ -106,7 +117,7 @@ public class VentanaPrincipal {
                 actualizarTabla();
 
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Datos inválidos");
+                JOptionPane.showMessageDialog(v, "Datos inválidos");
             }
         });
 
@@ -116,23 +127,17 @@ public class VentanaPrincipal {
             if (fila != -1) {
 
                 OrdenMantenimiento o = Datos.ordenes.get(fila);
-                Tecnico mejor = null;
-
-                for (Tecnico t : Datos.tecnicos) {
-                    if (t.getTarifa() <= o.calcularCosto()) {
-                        if (mejor == null || t.getExperiencia() > mejor.getExperiencia()) {
-                            mejor = t;
-                        }
-                    }
-                }
+                Tecnico mejor = AsignadorTecnico.asignar(Datos.tecnicos, o.calcularCosto(), o.getEquipo().getTipo());
 
                 if (mejor != null) {
                     o.asignarTecnico(mejor);
                     actualizarTabla();
+                } else {
+                    JOptionPane.showMessageDialog(v, "No hay técnico disponible para este presupuesto");
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Selecciona una fila");
+                JOptionPane.showMessageDialog(v, "Selecciona una fila");
             }
         });
 
@@ -147,7 +152,23 @@ public class VentanaPrincipal {
         finalizar.addActionListener(e -> {
             int fila = tabla.getSelectedRow();
             if (fila != -1) {
-                Datos.ordenes.get(fila).finalizar();
+                OrdenMantenimiento o = Datos.ordenes.get(fila);
+                o.finalizar();
+                
+                // Calcular costo con descuento
+                double costoOriginal = o.calcularCosto();
+                double costoFinal = o.calcularCostoConDescuento();
+                logArea.append("Orden finalizada.\n");
+                logArea.append("Costo original: $" + costoOriginal + "\n");
+                logArea.append("Costo final (con descuento): $" + costoFinal + "\n");
+                
+                // Enviar reporte al cliente
+                Notificacion notif = new Notificacion();
+                notif.enviar("email"); // Asumiendo envío por email
+                o.generarReporte(); // Generar reporte
+                
+                logArea.append("Notificación enviada al cliente y reporte generado.\n");
+                
                 actualizarTabla();
             }
         });
@@ -157,7 +178,14 @@ public class VentanaPrincipal {
         centro.setBackground(fondo);
         centro.add(form, BorderLayout.NORTH);
         centro.add(scroll, BorderLayout.CENTER);
-        centro.add(botones, BorderLayout.SOUTH);
+
+        // Panel inferior para botones y logs
+        JPanel inferior = new JPanel(new BorderLayout());
+        inferior.setBackground(fondo);
+        inferior.add(botones, BorderLayout.NORTH);
+        inferior.add(logScroll, BorderLayout.CENTER);
+
+        centro.add(inferior, BorderLayout.SOUTH);
 
         // 🔗 AGREGAR
         v.add(top, BorderLayout.NORTH);

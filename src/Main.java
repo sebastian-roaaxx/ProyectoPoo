@@ -13,19 +13,19 @@ public class Main {
         Datos.tecnicos.clear();
 
         // TECNICOS
-        Datos.tecnicos.add(new Tecnico("Cristiano Ronaldo", 5, 50000));
-        Datos.tecnicos.add(new Tecnico("Messi", 10, 90000));
-        Datos.tecnicos.add(new Tecnico("Mbappe", 3, 30000));
-        Datos.tecnicos.add(new Tecnico("Sergio Ramos", 15, 120000));
-        Datos.tecnicos.add(new Especialista("Ana García", 12, 110000));
-        Datos.tecnicos.add(new Tecnico("Neymar", 7, 70000));
+        Datos.tecnicos.add(new Tecnico("Cristiano Ronaldo", 5, 50000, "Computador"));
+        Datos.tecnicos.add(new Tecnico("Messi", 10, 90000, "Impresora"));
+        Datos.tecnicos.add(new Tecnico("Tony Stark", 3, 30000, "General"));
+        Datos.tecnicos.add(new Tecnico("Homelander", 15, 120000, "Televisor"));
+        Datos.tecnicos.add(new Especialista("Goku", 12, 110000, "Computador"));
+        Datos.tecnicos.add(new Tecnico("Neymar", 7, 70000, "General"));
 
         // CLIENTES
         Usuario c1 = new Persona("Joan Rodriguez", "101");
         Usuario c2 = new Persona("Juan Roa", "102");
         Usuario c3 = new Empresa("Microsoft", "103", "900123");
-        Usuario c4 = new Persona("Ana Pérez", "104");
-        Usuario c5 = new Empresa("Acme Corp", "105", "800456");
+        Usuario c4 = new Persona("Bruce Wayne", "104");
+        Usuario c5 = new Empresa("Shield", "105", "800456");
 
         // EQUIPOS
         Equipo e1 = new Computador("Laptop HP");
@@ -59,12 +59,12 @@ public class Main {
         OrdenMantenimiento o6 = new OrdenMantenimiento(c1, e6, 45000, "Error de impresión constante");
 
         // Usar asignador de técnicos y métodos del proyecto
-        o1.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o1.calcularCosto()));
-        o2.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o2.calcularCosto()));
-        o3.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o3.calcularCosto()));
-        o4.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o4.calcularCosto()));
-        o5.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o5.calcularCosto()));
-        o6.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o6.calcularCosto()));
+        o1.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o1.calcularCosto(), o1.getEquipo().getTipo()));
+        o2.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o2.calcularCosto(), o2.getEquipo().getTipo()));
+        o3.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o3.calcularCosto(), o3.getEquipo().getTipo()));
+        o4.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o4.calcularCosto(), o4.getEquipo().getTipo()));
+        o5.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o5.calcularCosto(), o5.getEquipo().getTipo()));
+        o6.asignarTecnico(AsignadorTecnico.asignar(Datos.tecnicos, o6.calcularCosto(), o6.getEquipo().getTipo()));
 
         o1.setPrioridad("Alta");
         o2.setPrioridad("Baja");
