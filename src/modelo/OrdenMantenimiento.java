@@ -10,12 +10,18 @@ implements Asignable, Calculable, Priorizable, Reportable {
     private Equipo equipo;
     private Tecnico tecnico;
     private double presupuesto;
+    private String problema;
     private String prioridad = "Media";
 
-    public OrdenMantenimiento(Usuario c, Equipo e, double p) {
+    public OrdenMantenimiento(Usuario c, Equipo e, double p, String problema) {
         cliente = c;
         equipo = e;
         presupuesto = p;
+        this.problema = problema;
+    }
+
+    public OrdenMantenimiento(Usuario c, Equipo e, double p) {
+        this(c, e, p, "Sin descripción");
     }
 
     // SOBRECARGA
@@ -69,11 +75,19 @@ implements Asignable, Calculable, Priorizable, Reportable {
         return tecnico;
     }
 
+    public String getPrioridad() {
+        return prioridad;
+    }
+
     public Usuario getCliente() {
         return cliente;
     }
 
     public Equipo getEquipo() {
         return equipo;
+    }
+
+    public String getProblema() {
+        return problema;
     }
 }

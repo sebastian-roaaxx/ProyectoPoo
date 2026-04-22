@@ -1,88 +1,139 @@
 <mxfile host="65bd71144e">
-    <diagram id="uml_class_diagram" name="ProyectoPOO">
-        <mxGraphModel dx="1110" dy="666" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+    <diagram id="uml-diagram" name="Sistema de Mantenimiento UML">
+        <mxGraphModel dx="1287" dy="1553" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="Persona" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;collapsed=0;connectable=0;recursiveResize=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#e1d5e7;" parent="1" vertex="1">
-                    <mxGeometry x="50" y="50" width="200" height="140" as="geometry"/>
+                <mxCell id="Usuario" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Usuario&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# nombre: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# id: String&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getNombre(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ mostrarInfo(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="50" y="50" width="200" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="- nombre: String&#xa;- id: String" style="text;divideTables=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;" parent="2" vertex="1">
-                    <mxGeometry y="26" width="200" height="44" as="geometry"/>
+                <mxCell id="Equipo" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Equipo&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# nombre: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# estado: String&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ tipo(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getNombre(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ iniciarMantenimiento(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ finalizarMantenimiento(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="350" y="50" width="240" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" parent="2" vertex="1">
-                    <mxGeometry y="70" width="200" height="8" as="geometry"/>
+                <mxCell id="OrdenBase" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;OrdenBase&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# estado: String&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ iniciar(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ finalizar(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="700" y="50" width="200" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="+ getNombre(): String&#xa;+ getId(): String&#xa;+ mostrarInfo(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;" parent="2" vertex="1">
-                    <mxGeometry y="78" width="200" height="62" as="geometry"/>
+                <mxCell id="Servicio" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Servicio&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# descripcion: String&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ejecutar(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="950" y="50" width="180" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="Tecnico" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;collapsed=0;connectable=0;recursiveResize=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#e1d5e7;" parent="1" vertex="1">
-                    <mxGeometry x="50" y="250" width="200" height="120" as="geometry"/>
+                <mxCell id="Asignable" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Asignable&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ asignarTecnico(t: Tecnico): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="50" y="250" width="200" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="- especialidad: String" style="text;divideTables=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;" parent="6" vertex="1">
-                    <mxGeometry y="26" width="200" height="26" as="geometry"/>
+                <mxCell id="Calculable" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Calculable&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ calcularCosto(): double&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="300" y="250" width="200" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" parent="6" vertex="1">
-                    <mxGeometry y="52" width="200" height="8" as="geometry"/>
+                <mxCell id="Mantenible" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Mantenible&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ iniciarMantenimiento(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ finalizarMantenimiento(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="550" y="250" width="220" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="+ getEspecialidad(): String&#xa;+ reparar(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;" parent="6" vertex="1">
-                    <mxGeometry y="60" width="200" height="60" as="geometry"/>
+                <mxCell id="Priorizable" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Priorizable&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ setPrioridad(p: String): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="820" y="250" width="200" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="&lt;&lt;interface&gt;&gt;&#xa;Mantenible" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;collapsed=0;connectable=0;recursiveResize=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#f0f0f0;" parent="1" vertex="1">
-                    <mxGeometry x="450" y="50" width="220" height="100" as="geometry"/>
+                <mxCell id="Reportable" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Reportable&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ generarReporte(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="1070" y="250" width="200" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" parent="10" vertex="1">
-                    <mxGeometry y="40" width="220" height="8" as="geometry"/>
+                <mxCell id="Notificable" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;Notificable&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ enviar(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="1300" y="250" width="180" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="+ iniciarMantenimiento(): void&#xa;+ finalizarMantenimiento(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;" parent="10" vertex="1">
-                    <mxGeometry y="48" width="220" height="52" as="geometry"/>
+                <mxCell id="Persona" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;Persona&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Persona(nombre: String, id: String)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ mostrarInfo(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="50" y="450" width="200" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="Equipo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;collapsed=0;connectable=0;recursiveResize=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#e1d5e7;" parent="1" vertex="1">
-                    <mxGeometry x="450" y="250" width="220" height="160" as="geometry"/>
+                <mxCell id="Empresa" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;Empresa&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- nit: String&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Empresa(nombre, id, nit)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ mostrarInfo(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="300" y="450" width="200" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="- nombre: String&#xa;- estado: String" style="text;divideTables=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;" parent="13" vertex="1">
-                    <mxGeometry y="26" width="220" height="44" as="geometry"/>
+                <mxCell id="Tecnico" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;Tecnico&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# nombre: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# experiencia: int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# tarifa: double&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getTarifa(): double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getExperiencia(): int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ reparar(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="550" y="450" width="220" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" parent="13" vertex="1">
-                    <mxGeometry y="70" width="220" height="8" as="geometry"/>
+                <mxCell id="Especialista" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;Especialista&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Especialista(nombre, exp, tarifa)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ reparar(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="820" y="450" width="200" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="+ getNombre(): String&#xa;+ getEstado(): String&#xa;+ iniciarMantenimiento(): void&#xa;+ finalizarMantenimiento(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;" parent="13" vertex="1">
-                    <mxGeometry y="78" width="220" height="82" as="geometry"/>
+                <mxCell id="Computador" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;Computador&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Computador(nombre)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ tipo(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="1070" y="450" width="180" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="OrdenMantenimiento" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;collapsed=0;connectable=0;recursiveResize=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;strokeWidth=2;fillColor=#e1d5e7;" parent="1" vertex="1">
-                    <mxGeometry x="250" y="500" width="240" height="180" as="geometry"/>
+                <mxCell id="Televisor" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;Televisor&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Televisor(nombre)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ tipo(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="1300" y="450" width="180" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="- equipo: Equipo&#xa;- tecnico: Tecnico&#xa;- estado: String" style="text;divideTables=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;" parent="17" vertex="1">
-                    <mxGeometry y="26" width="240" height="60" as="geometry"/>
+                <mxCell id="Impresora" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;Impresora&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Impresora(nombre)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ tipo(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=11;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="1530" y="450" width="180" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" parent="17" vertex="1">
-                    <mxGeometry y="86" width="240" height="8" as="geometry"/>
+                <mxCell id="OrdenMantenimiento" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;OrdenMantenimiento&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- cliente: Usuario&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- equipo: Equipo&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- tecnico: Tecnico&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- presupuesto: double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- problema: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- prioridad: String&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ asignarTecnico(t: Tecnico): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ iniciar(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ finalizar(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ calcularCosto(): double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ setPrioridad(p: String): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ generarReporte(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=10;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="200" y="650" width="280" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="+ iniciar(): void&#xa;+ finalizar(): void&#xa;+ getEquipo(): Equipo&#xa;+ getTecnico(): Tecnico&#xa;+ getEstado(): String" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;clipped=0;rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;" parent="17" vertex="1">
-                    <mxGeometry y="94" width="240" height="86" as="geometry"/>
+                <mxCell id="Factura" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;Factura&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- costo: double&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Factura(costo: double)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ calcularCosto(): double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ calcularCosto(desc: double): double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ generarReporte(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=10;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="550" y="700" width="240" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="" style="endArrow=block;endSize=16;endFill=0;dashed=0;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#000000;" parent="1" source="6" target="2" edge="1">
-                    <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="150" y="240" as="sourcePoint"/>
-                        <mxPoint x="310" y="160" as="targetPoint"/>
-                    </mxGeometry>
+                <mxCell id="Notificacion" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;Notificacion&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ enviar(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ enviar(canal: String): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ generarReporte(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=10;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="850" y="700" width="220" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="" style="endArrow=block;endSize=16;endFill=0;dashed=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#000000;" parent="1" source="13" target="10" edge="1">
-                    <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="560" y="240" as="sourcePoint"/>
-                        <mxPoint x="560" y="160" as="targetPoint"/>
-                    </mxGeometry>
+                <mxCell id="Datos" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;Datos&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ordenes: ArrayList&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ tecnicos: ArrayList&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=10;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="1150" y="700" width="200" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" value="" style="endArrow=open;rounded=0;dashed=0;strokeWidth=2;exitX=0.75;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;" parent="1" source="17" target="13" edge="1">
+                <mxCell id="AsignadorTecnico" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;AsignadorTecnico&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ asignar(lista, presupuesto)$: Tecnico&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=10;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1" parent="1" vertex="1">
+                    <mxGeometry x="1420" y="700" width="220" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="PersonaExtendsUsuario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Persona" target="Usuario" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="EmpresaExtendsUsuario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Empresa" target="Usuario" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="EspecialistaExtendsTecnico" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Especialista" target="Tecnico" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ComputadorExtendsEquipo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Computador" target="Equipo" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="TelevisorExtendsEquipo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Televisor" target="Equipo" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ImpresoraExtendsEquipo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Impresora" target="Equipo" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OrdenMantenimientoExtendsOrdenBase" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=0;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="OrdenMantenimiento" target="OrdenBase" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="EquipoImplementsMantenible" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Equipo" target="Mantenible" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OrdenMantenimientoImplementsAsignable" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="OrdenMantenimiento" target="Asignable" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OrdenMantenimientoImplementsCalculable" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="OrdenMantenimiento" target="Calculable" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OrdenMantenimientoImplementsPriorizable" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="OrdenMantenimiento" target="Priorizable" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OrdenMantenimientoImplementsReportable" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="OrdenMantenimiento" target="Reportable" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="FacturaImplementsCalculable" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Factura" target="Calculable" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="FacturaImplementsReportable" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Factura" target="Reportable" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="NotificacionImplementsNotificable" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Notificacion" target="Notificable" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="NotificacionImplementsReportable" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 4;endArrow=block;endFill=0;" parent="1" source="Notificacion" target="Reportable" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="OrdenMantenimientoToUsuario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" parent="1" source="OrdenMantenimiento" target="Usuario" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="440" y="480" as="sourcePoint"/>
-                        <mxPoint x="580" y="420" as="targetPoint"/>
+                        <mxPoint x="340" y="650" as="exitPoint"/>
+                        <mxPoint x="150" y="180" as="entryPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="24" value="" style="endArrow=open;rounded=0;dashed=0;strokeWidth=2;exitX=0.25;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeColor=#000000;" parent="1" source="17" target="6" edge="1">
+                <mxCell id="OrdenMantenimientoToEquipo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" parent="1" source="OrdenMantenimiento" target="Equipo" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="310" y="480" as="sourcePoint"/>
-                        <mxPoint x="150" y="390" as="targetPoint"/>
+                        <mxPoint x="380" y="650" as="exitPoint"/>
+                        <mxPoint x="470" y="210" as="entryPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="OrdenMantenimientoToTecnico" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" parent="1" source="OrdenMantenimiento" target="Tecnico" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="420" y="650" as="exitPoint"/>
+                        <mxPoint x="660" y="590" as="entryPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>

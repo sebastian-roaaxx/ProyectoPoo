@@ -43,12 +43,14 @@ public class VentanaPrincipal {
 
         JTextField txtCliente = crearInput("Cliente");
         JTextField txtEquipo = crearInput("Equipo");
+        JTextField txtProblema = crearInput("Problema");
         JTextField txtPresupuesto = crearInput("Presupuesto");
 
         JButton btnAgregar = crearBoton("Agregar", azul);
 
         form.add(txtCliente);
         form.add(txtEquipo);
+        form.add(txtProblema);
         form.add(txtPresupuesto);
         form.add(btnAgregar);
 
@@ -56,6 +58,8 @@ public class VentanaPrincipal {
         modelo = new DefaultTableModel();
         modelo.addColumn("Cliente");
         modelo.addColumn("Equipo");
+        modelo.addColumn("Problema");
+        modelo.addColumn("Prioridad");
         modelo.addColumn("Presupuesto");
         modelo.addColumn("Técnico");
         modelo.addColumn("Estado");
@@ -94,8 +98,9 @@ public class VentanaPrincipal {
                 Usuario u = new Persona(txtCliente.getText(), "1");
                 Equipo eq = new Computador(txtEquipo.getText());
                 double p = Double.parseDouble(txtPresupuesto.getText());
+                String problema = txtProblema.getText();
 
-                OrdenMantenimiento o = new OrdenMantenimiento(u, eq, p);
+                OrdenMantenimiento o = new OrdenMantenimiento(u, eq, p, problema);
                 Datos.ordenes.add(o);
 
                 actualizarTabla();
@@ -158,6 +163,7 @@ public class VentanaPrincipal {
         v.add(top, BorderLayout.NORTH);
         v.add(centro, BorderLayout.CENTER);
 
+        actualizarTabla();
         v.setVisible(true);
     }
 
@@ -192,6 +198,8 @@ public class VentanaPrincipal {
             modelo.addRow(new Object[]{
                     o.getCliente().getNombre(),
                     o.getEquipo().getNombre(),
+                    o.getProblema(),
+                    o.getPrioridad(),
                     o.calcularCosto(),
                     tecnico,
                     o.getEstado()
