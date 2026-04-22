@@ -1,22 +1,15 @@
 package modelo;
-public class Persona {
-    protected String nombre;
-    protected String id;
+
+import ClasesAbstractas.Usuario;
+
+public class Persona extends Usuario {
 
     public Persona(String nombre, String id) {
-        this.nombre = nombre;
-        this.id = id;
+        super(nombre, id);
     }
 
-    public String getNombre() {
-        return nombre;
-    }    
-
-    public String getId() {
-        return id;
-    }
-
+    @Override
     public void mostrarInfo() {
-        System.out.println("Nombre: " + nombre + " | ID: " + id);
+        System.out.println("Persona: " + nombre);
     }
 }

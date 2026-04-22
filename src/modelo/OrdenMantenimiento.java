@@ -1,54 +1,79 @@
-
 package modelo;
 
-public class OrdenMantenimiento {
+import ClasesAbstractas.*;
+import Interfaces.*;
 
+public class OrdenMantenimiento extends OrdenBase
+implements Asignable, Calculable, Priorizable, Reportable {
 
+    private Usuario cliente;
     private Equipo equipo;
-
     private Tecnico tecnico;
+    private double presupuesto;
+    private String prioridad = "Media";
 
-    
-    private String estado;
-
-    // Constructor de la clase, recibe un equipo y un técnico
-    public OrdenMantenimiento(Equipo equipo, Tecnico tecnico) {
-        this.equipo = equipo;
-        this.tecnico = tecnico;
-        // Inicializamos el estado de la orden como "Pendiente"
-        this.estado = "Pendiente";
+    public OrdenMantenimiento(Usuario c, Equipo e, double p) {
+        cliente = c;
+        equipo = e;
+        presupuesto = p;
     }
 
-    // Método getter para obtener el estado actual de la orden
+    // SOBRECARGA
+    public OrdenMantenimiento(Usuario c, Equipo e) {
+        this(c, e, 0);
+    }
+
+    public void asignarTecnico(Tecnico t) {
+        if (t == null) throw new IllegalArgumentException("Sin técnico");
+        tecnico = t;
+    }
+
+    public void iniciar() {
+        if (tecnico == null) {
+            System.out.println("No hay técnico");
+            return;
+        }
+        estado = "En proceso";
+        equipo.iniciarMantenimiento();
+        tecnico.reparar();
+    }
+
+    // SOBRECARGA
+    public void iniciar(String prioridad) {
+        this.prioridad = prioridad;
+        iniciar();
+    }
+
+    public void finalizar() {
+        estado = "Finalizado";
+        equipo.finalizarMantenimiento();
+    }
+
+    public double calcularCosto() {
+        return presupuesto;
+    }
+
+    public void setPrioridad(String p) {
+        prioridad = p;
+    }
+
+    public void generarReporte() {
+        System.out.println("Orden de " + cliente.getNombre() + " estado: " + estado);
+    }
+
     public String getEstado() {
         return estado;
     }
 
-    // Método para iniciar el mantenimiento
-    public void iniciar() {
-        // Cambiamos el estado de la orden a "En proceso"
-        estado = "En proceso";
-        equipo.iniciarMantenimiento();
-
-        // Llamamos al método del técnico para que realice la reparación
-        tecnico.reparar();
-    }
-
-    // Método para finalizar el mantenimiento
-    public void finalizar() {
-        // Cambiamos el estado de la orden a "Finalizado"
-        estado = "Finalizado";
-        // Llamamos al método del equipo para finalizar su mantenimiento
-        equipo.finalizarMantenimiento();
-    }
-
-    // Método getter para obtener el equipo asociado a la orden
-    public Equipo getEquipo() {
-        return equipo;
-    }
-
-    // Método getter para obtener el técnico asociado a la orden
     public Tecnico getTecnico() {
         return tecnico;
+    }
+
+    public Usuario getCliente() {
+        return cliente;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
     }
 }
