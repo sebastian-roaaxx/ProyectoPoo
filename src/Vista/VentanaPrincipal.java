@@ -15,20 +15,20 @@ public class VentanaPrincipal {
 
     public VentanaPrincipal() {
 
-        // 🎯 FRAME
+        //  FRAME
         v = new JFrame("Sistema de Mantenimiento");
         v.setSize(900,600); // Aumentar altura para logs
         v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         v.setLayout(new BorderLayout());
 
-        // 🎨 COLORES
+        //  COLORES
         Color fondo = new Color(24, 26, 27);
         Color panel = new Color(33, 37, 41);
         Color azul = new Color(0, 123, 255);
         Color verde = new Color(40, 167, 69);
         Color gris = new Color(108, 117, 125);
 
-        // 🔝 HEADER
+        //  HEADER
         JLabel titulo = new JLabel("Panel de Administración", JLabel.CENTER);
         titulo.setForeground(Color.WHITE);
         titulo.setFont(new Font("Segoe UI", Font.BOLD, 22));
@@ -38,7 +38,7 @@ public class VentanaPrincipal {
         top.setBackground(panel);
         top.add(titulo);
 
-        // 📥 FORMULARIO
+        // FORMULARIO
         JPanel form = new JPanel(new GridLayout(2,4,10,10));
         form.setBackground(fondo);
         form.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
@@ -56,7 +56,7 @@ public class VentanaPrincipal {
         form.add(txtPresupuesto);
         form.add(btnAgregar);
 
-        // 📊 TABLA
+        // TABLA
         modelo = new DefaultTableModel();
         modelo.addColumn("Cliente");
         modelo.addColumn("Equipo");
@@ -81,7 +81,7 @@ public class VentanaPrincipal {
         JScrollPane scroll = new JScrollPane(tabla);
         scroll.setBorder(BorderFactory.createEmptyBorder());
 
-        // 🔘 BOTONES
+        // BOTONES
         JPanel botones = new JPanel();
         botones.setBackground(fondo);
 
@@ -93,7 +93,7 @@ public class VentanaPrincipal {
         botones.add(iniciar);
         botones.add(finalizar);
 
-        // 📝 LOGS
+        //  LOGS
         logArea = new JTextArea(5, 50);
         logArea.setEditable(false);
         logArea.setBackground(new Color(40, 44, 52));
@@ -102,7 +102,7 @@ public class VentanaPrincipal {
         JScrollPane logScroll = new JScrollPane(logArea);
         logScroll.setBorder(BorderFactory.createTitledBorder("Mensajes del Sistema"));
 
-        // ⚡ EVENTOS
+        //  EVENTOS
 
         btnAgregar.addActionListener(e -> {
             try {
@@ -173,7 +173,7 @@ public class VentanaPrincipal {
             }
         });
 
-        // 📦 CONTENEDOR CENTRAL
+        //  CONTENEDOR CENTRAL
         JPanel centro = new JPanel(new BorderLayout());
         centro.setBackground(fondo);
         centro.add(form, BorderLayout.NORTH);
@@ -187,7 +187,7 @@ public class VentanaPrincipal {
 
         centro.add(inferior, BorderLayout.SOUTH);
 
-        // 🔗 AGREGAR
+        //  AGREGAR
         v.add(top, BorderLayout.NORTH);
         v.add(centro, BorderLayout.CENTER);
 
@@ -195,7 +195,7 @@ public class VentanaPrincipal {
         v.setVisible(true);
     }
 
-    // 🔧 INPUT MODERNO
+    //  INPUT MODERNO
     private JTextField crearInput(String placeholder) {
         JTextField txt = new JTextField();
         txt.setBorder(BorderFactory.createTitledBorder(placeholder));
@@ -203,7 +203,7 @@ public class VentanaPrincipal {
         return txt;
     }
 
-    // 🔘 BOTÓN MODERNO
+    //  BOTÓN MODERNO
     private JButton crearBoton(String texto, Color color) {
         JButton b = new JButton(texto);
         b.setBackground(color);
