@@ -2,6 +2,7 @@ package modelo;
 
 import Interfaces.Calculable;
 import Interfaces.Reportable;
+import java.io.File;
 import java.io.FileWriter;
 
 public class Factura implements Calculable, Reportable {
@@ -46,32 +47,40 @@ public class Factura implements Calculable, Reportable {
 
         try {
 
+            // Crear carpeta de facturas si no existe
+            File carpetaFacturas = new File(System.getProperty("user.dir"), "facturas");
+            if (!carpetaFacturas.exists()) {
+                carpetaFacturas.mkdirs();
+            }
+
+            File archivoFactura = new File(carpetaFacturas, nombreArchivo);
+
             // Crear archivo
-            FileWriter fw = new FileWriter(nombreArchivo);
+            try (FileWriter fw = new FileWriter(archivoFactura)) {
+                // Escribir contenido dentro del archivo
+                fw.write("==============================\n");
+                fw.write("       FACTURA DE SERVICIO    \n");
+                fw.write("==============================\n");
 
-            // Escribir contenido dentro del archivo
-            fw.write("==============================\n");
-            fw.write("       FACTURA DE SERVICIO    \n");
-            fw.write("==============================\n");
+                // Datos de la orden
+                fw.write("Cliente:  " + orden.getCliente().getNombre() + "\n");
+                fw.write("Equipo:   " + orden.getEquipo().getNombre() + "\n");
+                fw.write("Problema: " + orden.getProblema() + "\n");
+                fw.write("Técnico:  " + orden.getTecnico().getNombre() + "\n");
 
-            // Datos de la orden
-            fw.write("Cliente:  " + orden.getCliente().getNombre() + "\n");
-            fw.write("Equipo:   " + orden.getEquipo().getNombre() + "\n");
-            fw.write("Problema: " + orden.getProblema() + "\n");
-            fw.write("Técnico:  " + orden.getTecnico().getNombre() + "\n");
+                // Valor final de la factura
+                fw.write("Costo:    $" + costo + "\n");
 
-            // Valor final de la factura
-            fw.write("Costo:    $" + costo + "\n");
+                fw.write("==============================\n");
+            }
 
-            fw.write("==============================\n");
-
-            // Cerrar archivo IMPORTANTÍSIMO
-            fw.close();
+            System.out.println("Factura guardada en: " + archivoFactura.getAbsolutePath());
 
         } catch (Exception e) {
 
             // Captura errores al crear/escribir archivo
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error al generar factura: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

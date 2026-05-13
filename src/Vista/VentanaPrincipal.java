@@ -3,6 +3,7 @@ package Vista;
 import ClasesAbstractas.*;
 import TiposdeEquipo.*;
 import java.awt.*;
+import java.io.File;
 import javax.swing.*;
 import javax.swing.table.*;
 import modelo.*;
@@ -236,10 +237,13 @@ public class VentanaPrincipal {
                     o.getCliente().getNombre().replace(" ", "_")
                     + ".txt";
 
+            File carpetaFacturas = new File(System.getProperty("user.dir"), "facturas");
+            File rutaFactura = new File(carpetaFacturas, nombreArchivo);
+
             Factura factura = new Factura(costoFinal);
 
             // Crear archivo txt
-            factura.generarFactura(nombreArchivo, o);
+            factura.generarFactura(rutaFactura.getAbsolutePath(), o);
 
             // NOTIFICACIONES
             Notificacion notif = new Notificacion();
