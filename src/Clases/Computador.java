@@ -1,4 +1,4 @@
-package TiposdeEquipo;
+package Clases;
 
 import ClasesAbstractas.Equipo;
 

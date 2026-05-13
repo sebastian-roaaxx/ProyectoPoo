@@ -1,6 +1,8 @@
-package modelo;
+package Clases;
 
-import ClasesAbstractas.*;
+import ClasesAbstractas.Equipo;
+import ClasesAbstractas.OrdenBase;
+import ClasesAbstractas.Usuario;
 import Interfaces.*;
 
 public class OrdenMantenimiento extends OrdenBase

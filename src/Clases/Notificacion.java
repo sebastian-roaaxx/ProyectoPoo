@@ -1,4 +1,4 @@
-package modelo;
+package Clases;
 
 import Interfaces.Notificable;
 import Interfaces.Reportable;

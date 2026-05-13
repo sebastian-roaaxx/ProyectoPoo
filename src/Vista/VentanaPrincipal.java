@@ -1,12 +1,12 @@
 package Vista;
 
 import ClasesAbstractas.*;
-import TiposdeEquipo.*;
 import java.awt.*;
 import java.io.File;
 import javax.swing.*;
 import javax.swing.table.*;
-import modelo.*;
+import Clases.*;
+import Interfaces.*;
 
 public class VentanaPrincipal {
 

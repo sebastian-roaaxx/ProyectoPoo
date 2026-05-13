@@ -1,8 +1,8 @@
 import Vista.VentanaPrincipal;
-import modelo.*;
 import ClasesAbstractas.*;
+import Clases.*;
 import Interfaces.*;
-import TiposdeEquipo.*;
+
 
 public class Main {
 

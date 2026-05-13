@@ -1,6 +1,6 @@
 package Interfaces;
 
-import modelo.Tecnico;
+import Clases.Tecnico;
 
 public interface Asignable {
     void asignarTecnico(Tecnico t);

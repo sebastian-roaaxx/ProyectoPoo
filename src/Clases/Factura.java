@@ -1,7 +1,8 @@
-package modelo;
+package Clases;
 
 import Interfaces.Calculable;
 import Interfaces.Reportable;
+
 import java.io.File;
 import java.io.FileWriter;
 
@@ -69,7 +70,8 @@ public class Factura implements Calculable, Reportable {
                 fw.write("Técnico:  " + orden.getTecnico().getNombre() + "\n");
 
                 // Valor final de la factura
-                fw.write("Costo:    $" + costo + "\n");
+                fw.write("Costo:    $" + calcularCosto(0.1) + "\n");
+
 
                 fw.write("==============================\n");
             }
