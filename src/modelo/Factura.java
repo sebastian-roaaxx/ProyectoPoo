@@ -13,7 +13,7 @@ public class Factura implements Calculable, Reportable {
     public Factura(double costo) {
         this.costo = costo;
     }
-
+// 
     // Constructor vacío
     // this(0) llama al constructor de arriba enviando 0
     public Factura() {
