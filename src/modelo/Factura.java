@@ -2,30 +2,76 @@ package modelo;
 
 import Interfaces.Calculable;
 import Interfaces.Reportable;
+import java.io.FileWriter;
 
 public class Factura implements Calculable, Reportable {
 
+    // Atributo que guarda el costo total
     private double costo;
 
+    // Constructor principal
     public Factura(double costo) {
         this.costo = costo;
     }
 
-    // SOBRECARGA
+    // Constructor vacío
+    // this(0) llama al constructor de arriba enviando 0
     public Factura() {
         this(0);
     }
 
+    // IMPLEMENTACIÓN DE INTERFAZ
+    // Devuelve el costo de la factura
     public double calcularCosto() {
         return costo;
     }
 
-    // SOBRECARGA
+    // SOBRECARGA DE MÉTODO
+    // Mismo método pero con parámetro
     public double calcularCosto(double descuento) {
+
+        // Retorna costo con descuento
         return costo - descuento;
     }
 
+    // IMPLEMENTACIÓN DE INTERFAZ Reportable
     public void generarReporte() {
+
+        // Imprime factura en consola
         System.out.println("Factura: $" + costo);
+    }
+
+    // GENERAR FACTURA EN ARCHIVO .TXT
+    public void generarFactura(String nombreArchivo, OrdenMantenimiento orden) {
+
+        try {
+
+            // Crear archivo
+            FileWriter fw = new FileWriter(nombreArchivo);
+
+            // Escribir contenido dentro del archivo
+            fw.write("==============================\n");
+            fw.write("       FACTURA DE SERVICIO    \n");
+            fw.write("==============================\n");
+
+            // Datos de la orden
+            fw.write("Cliente:  " + orden.getCliente().getNombre() + "\n");
+            fw.write("Equipo:   " + orden.getEquipo().getNombre() + "\n");
+            fw.write("Problema: " + orden.getProblema() + "\n");
+            fw.write("Técnico:  " + orden.getTecnico().getNombre() + "\n");
+
+            // Valor final de la factura
+            fw.write("Costo:    $" + costo + "\n");
+
+            fw.write("==============================\n");
+
+            // Cerrar archivo IMPORTANTÍSIMO
+            fw.close();
+
+        } catch (Exception e) {
+
+            // Captura errores al crear/escribir archivo
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }

@@ -1,63 +1,74 @@
 package Vista;
 
-import modelo.*;
 import ClasesAbstractas.*;
 import TiposdeEquipo.*;
+import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.*;
-import java.awt.*;
+import modelo.*;
 
 public class VentanaPrincipal {
 
+    // Modelo que controla los datos de la tabla
     private DefaultTableModel modelo;
-    private JFrame v; // Hacer v un campo para usar en dialogs
-    private JTextArea logArea; // Área para mostrar mensajes
+
+    // Ventana principal
+    private JFrame v;
+
+    // Área donde se muestran mensajes del sistema
+    private JTextArea logArea;
 
     public VentanaPrincipal() {
 
-        //  FRAME
+        // CREACIÓN DE LA VENTANA PRINCIPAL
         v = new JFrame("Sistema de Mantenimiento");
-        v.setSize(900,600); // Aumentar altura para logs
+        v.setSize(900,600);
         v.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // BorderLayout divide la ventana en NORTH, SOUTH, CENTER...
         v.setLayout(new BorderLayout());
 
-        //  COLORES
+        // Colores personalizados para la interfaz
         Color fondo = new Color(24, 26, 27);
         Color panel = new Color(33, 37, 41);
         Color azul = new Color(0, 123, 255);
         Color verde = new Color(40, 167, 69);
         Color gris = new Color(108, 117, 125);
 
-        //  HEADER
+        // TÍTULO PRINCIPAL
         JLabel titulo = new JLabel("Panel de Administración", JLabel.CENTER);
         titulo.setForeground(Color.WHITE);
         titulo.setFont(new Font("Segoe UI", Font.BOLD, 22));
-        titulo.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
         JPanel top = new JPanel(new BorderLayout());
         top.setBackground(panel);
         top.add(titulo);
 
-        // FORMULARIO
+        // PANEL DEL FORMULARIO
+        // GridLayout organiza componentes en filas y columnas
         JPanel form = new JPanel(new GridLayout(2,4,10,10));
         form.setBackground(fondo);
-        form.setBorder(BorderFactory.createEmptyBorder(15,15,15,15));
 
+        // Campos de texto
         JTextField txtCliente = crearInput("Cliente");
         JTextField txtEquipo = crearInput("Equipo");
         JTextField txtProblema = crearInput("Problema");
         JTextField txtPresupuesto = crearInput("Presupuesto");
 
+        // Botón para agregar órdenes
         JButton btnAgregar = crearBoton("Agregar", azul);
 
+        // Agregar componentes al formulario
         form.add(txtCliente);
         form.add(txtEquipo);
         form.add(txtProblema);
         form.add(txtPresupuesto);
         form.add(btnAgregar);
 
-        // TABLA
+        // MODELO DE LA TABLA
         modelo = new DefaultTableModel();
+
+        // Columnas que tendrá la tabla
         modelo.addColumn("Cliente");
         modelo.addColumn("Equipo");
         modelo.addColumn("Problema");
@@ -66,22 +77,16 @@ public class VentanaPrincipal {
         modelo.addColumn("Técnico");
         modelo.addColumn("Estado");
 
+        // TABLA
         JTable tabla = new JTable(modelo);
-        tabla.setRowHeight(28);
-        tabla.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        tabla.setBackground(new Color(40, 44, 52));
-        tabla.setForeground(Color.WHITE);
-        tabla.setSelectionBackground(azul);
 
+        // PERSONALIZACIÓN DE LA TABLA
         JTableHeader header = tabla.getTableHeader();
         header.setBackground(panel);
-        header.setForeground(Color.WHITE);
-        header.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
         JScrollPane scroll = new JScrollPane(tabla);
-        scroll.setBorder(BorderFactory.createEmptyBorder());
 
-        // BOTONES
+        // PANEL DE BOTONES
         JPanel botones = new JPanel();
         botones.setBackground(fondo);
 
@@ -93,137 +98,220 @@ public class VentanaPrincipal {
         botones.add(iniciar);
         botones.add(finalizar);
 
-        //  LOGS
+        // ÁREA DE LOGS
         logArea = new JTextArea(5, 50);
+
+        // Evita que el usuario escriba
         logArea.setEditable(false);
-        logArea.setBackground(new Color(40, 44, 52));
-        logArea.setForeground(Color.WHITE);
-        logArea.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+
         JScrollPane logScroll = new JScrollPane(logArea);
-        logScroll.setBorder(BorderFactory.createTitledBorder("Mensajes del Sistema"));
 
-        //  EVENTOS
+        // ================= EVENTOS =================
 
+        // EVENTO DEL BOTÓN AGREGAR
         btnAgregar.addActionListener(e -> {
+
             try {
+
+                // Crear usuario
                 Usuario u = new Persona(txtCliente.getText(), "1");
+
+                // Crear equipo
                 Equipo eq = new Computador(txtEquipo.getText());
+
+                // Convertir texto a double
                 double p = Double.parseDouble(txtPresupuesto.getText());
+
                 String problema = txtProblema.getText();
 
+                // Crear orden de mantenimiento
                 OrdenMantenimiento o = new OrdenMantenimiento(u, eq, p, problema);
+
+                // Guardar orden en la lista
                 Datos.ordenes.add(o);
 
+                // Refrescar tabla
                 actualizarTabla();
 
             } catch (Exception ex) {
+
+                // Captura errores si el usuario escribe mal datos
                 JOptionPane.showMessageDialog(v, "Datos inválidos");
             }
         });
 
+        // EVENTO ASIGNAR TÉCNICO
         asignar.addActionListener(e -> {
+
+            // Obtener fila seleccionada
             int fila = tabla.getSelectedRow();
 
             if (fila != -1) {
 
+                // Obtener orden seleccionada
                 OrdenMantenimiento o = Datos.ordenes.get(fila);
-                Tecnico mejor = AsignadorTecnico.asignar(Datos.tecnicos, o.calcularCosto(), o.getEquipo().getTipo());
+
+                // Buscar mejor técnico según costo y tipo de equipo
+                Tecnico mejor = AsignadorTecnico.asignar(
+                        Datos.tecnicos,
+                        o.calcularCosto(),
+                        o.getEquipo().getTipo()
+                );
 
                 if (mejor != null) {
+
+                    // Asignar técnico a la orden
                     o.asignarTecnico(mejor);
+
                     actualizarTabla();
+
                 } else {
-                    JOptionPane.showMessageDialog(v, "No hay técnico disponible para este presupuesto");
+
+                    JOptionPane.showMessageDialog(v,
+                            "No hay técnico disponible para este presupuesto");
                 }
 
             } else {
+
                 JOptionPane.showMessageDialog(v, "Selecciona una fila");
             }
         });
 
+        // EVENTO INICIAR ORDEN
         iniciar.addActionListener(e -> {
+
             int fila = tabla.getSelectedRow();
+
             if (fila != -1) {
+
+                // Cambia estado de la orden
                 Datos.ordenes.get(fila).iniciar();
+
                 actualizarTabla();
             }
         });
 
+        // EVENTO FINALIZAR ORDEN
         finalizar.addActionListener(e -> {
+
             int fila = tabla.getSelectedRow();
-            if (fila != -1) {
-                OrdenMantenimiento o = Datos.ordenes.get(fila);
-                o.finalizar();
-                
-                // Calcular costo con descuento
-                double costoOriginal = o.calcularCosto();
-                double costoFinal = o.calcularCostoConDescuento();
-                logArea.append("Orden finalizada.\n");
-                logArea.append("Costo original: $" + costoOriginal + "\n");
-                logArea.append("Costo final (con descuento): $" + costoFinal + "\n");
-                
-                // Enviar reporte al cliente
-                Notificacion notif = new Notificacion();
-                notif.enviar("email"); // Asumiendo envío por email
-                o.generarReporte(); // Generar reporte
-                
-                logArea.append("Notificación enviada al cliente y reporte generado.\n");
-                
-                actualizarTabla();
+
+            // Validaciones
+            if (fila == -1) {
+                JOptionPane.showMessageDialog(v, "Selecciona una fila");
+                return;
             }
+
+            if (fila >= Datos.ordenes.size()) {
+                JOptionPane.showMessageDialog(v, "Error: fila inválida");
+                return;
+            }
+
+            OrdenMantenimiento o = Datos.ordenes.get(fila);
+
+            if (o == null) {
+                JOptionPane.showMessageDialog(v, "Error: orden no encontrada");
+                return;
+            }
+
+            // Verifica si la orden tiene técnico
+            if (o.getTecnico() == null) {
+                logArea.append("Error: asigna un técnico antes de finalizar.\n");
+                return;
+            }
+
+            // Finalizar orden
+            o.finalizar();
+
+            // POLIMORFISMO:
+            // calcularCostoConDescuento probablemente cambia según la clase
+            double costoOriginal = o.calcularCosto();
+            double costoFinal = o.calcularCostoConDescuento();
+
+            logArea.append("Orden finalizada.\n");
+
+            // GENERAR FACTURA
+            String nombreArchivo =
+                    "factura_" +
+                    o.getCliente().getNombre().replace(" ", "_")
+                    + ".txt";
+
+            Factura factura = new Factura(costoFinal);
+
+            // Crear archivo txt
+            factura.generarFactura(nombreArchivo, o);
+
+            // NOTIFICACIONES
+            Notificacion notif = new Notificacion();
+            notif.enviar("email");
+
+            // Generar reporte
+            o.generarReporte();
+
+            actualizarTabla();
         });
 
-        //  CONTENEDOR CENTRAL
+        // PANEL CENTRAL
         JPanel centro = new JPanel(new BorderLayout());
-        centro.setBackground(fondo);
+
         centro.add(form, BorderLayout.NORTH);
         centro.add(scroll, BorderLayout.CENTER);
 
-        // Panel inferior para botones y logs
+        // PANEL INFERIOR
         JPanel inferior = new JPanel(new BorderLayout());
-        inferior.setBackground(fondo);
+
         inferior.add(botones, BorderLayout.NORTH);
         inferior.add(logScroll, BorderLayout.CENTER);
 
         centro.add(inferior, BorderLayout.SOUTH);
 
-        //  AGREGAR
+        // AGREGAR TODO A LA VENTANA
         v.add(top, BorderLayout.NORTH);
         v.add(centro, BorderLayout.CENTER);
 
         actualizarTabla();
+
+        // Hace visible la ventana
         v.setVisible(true);
     }
 
-    //  INPUT MODERNO
+    // MÉTODO PARA CREAR INPUTS
     private JTextField crearInput(String placeholder) {
+
         JTextField txt = new JTextField();
+
         txt.setBorder(BorderFactory.createTitledBorder(placeholder));
-        txt.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+
         return txt;
     }
 
-    //  BOTÓN MODERNO
+    // MÉTODO PARA CREAR BOTONES
     private JButton crearBoton(String texto, Color color) {
+
         JButton b = new JButton(texto);
+
         b.setBackground(color);
-        b.setForeground(Color.WHITE);
-        b.setFocusPainted(false);
-        b.setFont(new Font("Segoe UI", Font.BOLD, 13));
+
         return b;
     }
 
+    // ACTUALIZA LOS DATOS DE LA TABLA
     private void actualizarTabla() {
 
+        // Limpia filas
         modelo.setRowCount(0);
 
+        // Recorre todas las órdenes
         for (OrdenMantenimiento o : Datos.ordenes) {
 
+            // Operador ternario
             String tecnico = (o.getTecnico() != null)
                     ? o.getTecnico().getNombre()
                     : "Sin asignar";
 
+            // Agrega fila a la tabla
             modelo.addRow(new Object[]{
+
                     o.getCliente().getNombre(),
                     o.getEquipo().getNombre(),
                     o.getProblema(),
