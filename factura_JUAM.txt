@@ -1,0 +1,9 @@
+==============================
+       FACTURA DE SERVICIO    
+==============================
+Cliente:  JUAM
+Equipo:   PC
+Problema: BN
+Técnico:  Goku
+Costo:    $760000.0
+==============================
