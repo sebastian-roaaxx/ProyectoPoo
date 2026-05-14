@@ -23,7 +23,7 @@ public class VentanaPrincipal {
 
     public VentanaPrincipal() {
 
-        // ================= VENTANA =================
+        //  VENTANA
 
         v = new JFrame("Sistema de Mantenimiento");
 
@@ -33,7 +33,7 @@ public class VentanaPrincipal {
 
         v.setLayout(new BorderLayout());
 
-        // ================= COLORES =================
+        // COLORES UI
 
         Color fondo = new Color(18,18,18);
 
@@ -45,7 +45,7 @@ public class VentanaPrincipal {
 
         Color gris = new Color(64,68,75);
 
-        // ================= TITULO =================
+        // TITULO
 
         JLabel titulo = new JLabel(
                 "Panel de Administración",
@@ -70,7 +70,7 @@ public class VentanaPrincipal {
 
         top.add(titulo);
 
-        // ================= FORMULARIO =================
+        // FORMULARIO
 
         JPanel form = new JPanel(
                 new GridLayout(2,5,10,10)
@@ -135,7 +135,7 @@ public class VentanaPrincipal {
 
         form.add(btnAgregar);
 
-        // ================= TABLA =================
+        //  TABLA
 
         modelo = new DefaultTableModel();
 
@@ -198,7 +198,7 @@ public class VentanaPrincipal {
         JScrollPane scroll =
                 new JScrollPane(tabla);
 
-        // ================= BOTONES =================
+        // BOTONES 
 
         JPanel botones = new JPanel();
 
@@ -219,7 +219,7 @@ public class VentanaPrincipal {
 
         botones.add(finalizar);
 
-        // ================= LOGS =================
+        // LOGS 
 
         logArea = new JTextArea(5,50);
 
@@ -246,7 +246,7 @@ public class VentanaPrincipal {
         JScrollPane logScroll =
                 new JScrollPane(logArea);
 
-        // ================= EVENTO AGREGAR =================
+        // AGREGAR OBJETOS
 
         btnAgregar.addActionListener(e -> {
 
@@ -332,7 +332,7 @@ public class VentanaPrincipal {
             }
         });
 
-        // ================= EVENTO ASIGNAR =================
+        // ASIGNAR TECNICO
 
         asignar.addActionListener(e -> {
 
@@ -384,7 +384,7 @@ public class VentanaPrincipal {
             }
         });
 
-        // ================= EVENTO INICIAR =================
+        // INICIAR
 
         iniciar.addActionListener(e -> {
 
@@ -406,7 +406,7 @@ public class VentanaPrincipal {
             }
         });
 
-        // ================= EVENTO FINALIZAR =================
+        // FINALIZAR
 
         finalizar.addActionListener(e -> {
 
@@ -491,8 +491,7 @@ public class VentanaPrincipal {
             // Generar reporte
             o.generarReporte();
 
-            // ================= FACTURA VISUAL =================
-
+            //  FACTURA VISUAL 
             JDialog facturaDialog =
                     new JDialog(
                             v,
@@ -555,9 +554,9 @@ public class VentanaPrincipal {
             // Contenido factura
             facturaArea.setText(
 
-                    "====================================\n" +
+                    "------------------------------------\n" +
                     "        SISTEMA DE SOPORTE         \n" +
-                    "====================================\n\n" +
+                    "------------------------------------\n\n" +
 
                     "CLIENTE\n" +
                     "------------------------------------\n" +
@@ -605,9 +604,9 @@ public class VentanaPrincipal {
                     (costoOriginal - costoFinal)
                     + "\n\n" +
 
-                    "====================================\n" +
-                    "      Gracias por confiar ❤️      \n" +
-                    "===================================="
+                    "------------------------------------\n" +
+                    "      Siempre a su servicio      \n" +
+                    "------------------------------------"
             );
 
             JScrollPane facturaScroll =
@@ -657,7 +656,7 @@ public class VentanaPrincipal {
             );
         });
 
-        // ================= PANEL CENTRAL =================
+        // PANEL CENTRAL
 
         JPanel centro =
                 new JPanel(
@@ -670,7 +669,7 @@ public class VentanaPrincipal {
 
         centro.add(scroll, BorderLayout.CENTER);
 
-        // ================= PANEL INFERIOR =================
+        // PANEL INFERIOR
 
         JPanel inferior =
                 new JPanel(
@@ -694,7 +693,7 @@ public class VentanaPrincipal {
                 BorderLayout.SOUTH
         );
 
-        // ================= AGREGAR TODO =================
+        // AGREGAR TODO 
 
         v.add(top, BorderLayout.NORTH);
 
@@ -705,7 +704,7 @@ public class VentanaPrincipal {
         v.setVisible(true);
     }
 
-    // ================= INPUT =================
+    // INPUTS
 
     private JTextField crearInput(
             String placeholder
@@ -731,7 +730,7 @@ public class VentanaPrincipal {
         return txt;
     }
 
-    // ================= BOTONES =================
+    // BOTONES
 
     private JButton crearBoton(
             String texto,
@@ -776,7 +775,7 @@ public class VentanaPrincipal {
         return b;
     }
 
-    // ================= ACTUALIZAR TABLA =================
+    // ACTUALIZAR TABLA CON ORDENES
 
     private void actualizarTabla() {
 
