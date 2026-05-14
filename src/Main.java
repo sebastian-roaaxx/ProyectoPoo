@@ -14,11 +14,11 @@ public class Main {
 
         // TECNICOS
         Datos.tecnicos.add(new Tecnico("Cristiano Ronaldo", 5, 50000, "Computador"));
-        Datos.tecnicos.add(new Tecnico("Messi", 10, 90000, "Impresora"));
+        Datos.tecnicos.add(new Tecnico("Leonel Messi", 10, 90000, "Impresora"));
         Datos.tecnicos.add(new Tecnico("Tony Stark", 3, 30000, "General"));
-        Datos.tecnicos.add(new Tecnico("Homelander", 15, 120000, "Televisor"));
-        Datos.tecnicos.add(new Especialista("Goku", 12, 110000, "Computador"));
-        Datos.tecnicos.add(new Tecnico("Neymar", 7, 70000, "General"));
+        Datos.tecnicos.add(new Tecnico("Reed Richards", 15, 120000, "Televisor"));
+        Datos.tecnicos.add(new Especialista("Peter Parker", 12, 110000, "Computador"));
+        Datos.tecnicos.add(new Tecnico("Bruce Wayne", 7, 70000, "General"));
 
         // CLIENTES
         Usuario c1 = new Persona("Joan Rodriguez", "101");
