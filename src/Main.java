@@ -1,7 +1,6 @@
 import Vista.VentanaPrincipal;
 import ClasesAbstractas.*;
 import Clases.*;
-import Interfaces.*;
 
 
 public class Main {
