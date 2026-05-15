@@ -1,13 +1,11 @@
-package Vista; // Este archivo pertenece al paquete Vista, que agrupa las clases de la interfaz gráfica
-
+package Vista; 
 import Clases.*;         // Importa todas las clases del paquete Clases (Persona, Impresora, Computador, etc.)
 import ClasesAbstractas.*; // Importa las clases abstractas (Equipo, Usuario, OrdenMantenimiento, etc.)
 import java.awt.*;       // Importa las herramientas de diseño visual de Java (Color, Font, BorderLayout, etc.)
 import javax.swing.*;    // Importa los componentes visuales de Swing (JFrame, JButton, JTable, etc.)
 import javax.swing.table.*; // Importa herramientas específicas para manejar tablas (DefaultTableModel, JTableHeader)
 
-public class VentanaPrincipal { // Clase principal de la interfaz gráfica
-
+public class VentanaPrincipal { // ACA SE CREA LA INTERFAZ GRAFICA PRINCIPAL
     private DefaultTableModel modelo; // Modelo de datos de la tabla — controla filas y columnas en memoria
     private JFrame v;                 // Ventana principal de la aplicación
     private JTextArea logArea;        // Área de texto donde se muestran mensajes del sistema al usuario
@@ -98,7 +96,7 @@ public class VentanaPrincipal { // Clase principal de la interfaz gráfica
                     Double.parseDouble(txtPresupuesto.getText()), // Convierte el texto del presupuesto a número decimal
                     txtProblema.getText()                         // El problema descrito en el formulario
                 );
-                Datos.ordenes.add(o);  // Guarda la orden en la lista global de órdenes
+                DatosArray.ordenes.add(o);  // Guarda la orden en la lista global de órdenes
                 actualizarTabla();     // Refresca la tabla para mostrar la nueva orden
                 logArea.append("Orden agregada.\n"); // Muestra mensaje de confirmación en el log
             } catch (Exception ex) {
@@ -110,9 +108,9 @@ public class VentanaPrincipal { // Clase principal de la interfaz gráfica
         asignar.addActionListener(e -> {
             int fila = tabla.getSelectedRow(); // Obtiene el índice de la fila seleccionada (-1 si no hay ninguna)
             if (fila == -1) { JOptionPane.showMessageDialog(v, "Selecciona una fila"); return; } // Si no hay fila seleccionada, avisa y sale
-            OrdenMantenimiento o = Datos.ordenes.get(fila); // Obtiene la orden correspondiente a esa fila
+            OrdenMantenimiento o = DatosArray.ordenes.get(fila); // Obtiene la orden correspondiente a esa fila
             Tecnico mejor = AsignadorTecnico.asignar(       // Busca el mejor técnico disponible según presupuesto y tipo de equipo
-                Datos.tecnicos,
+                DatosArray.tecnicos,
                 o.calcularCosto(),
                 o.getEquipo().getTipo()
             );
@@ -129,7 +127,7 @@ public class VentanaPrincipal { // Clase principal de la interfaz gráfica
         iniciar.addActionListener(e -> {
             int fila = tabla.getSelectedRow(); // Obtiene la fila seleccionada
             if (fila != -1) {                  // Solo actúa si hay una fila seleccionada
-                Datos.ordenes.get(fila).iniciar(); // Cambia el estado de la orden a "En proceso"
+                DatosArray.ordenes.get(fila).iniciar(); // Cambia el estado de la orden a "En proceso"
                 actualizarTabla();                 // Refresca la tabla para reflejar el nuevo estado
                 logArea.append("Mantenimiento iniciado.\n");
             }
@@ -139,7 +137,7 @@ public class VentanaPrincipal { // Clase principal de la interfaz gráfica
         finalizar.addActionListener(e -> {
             int fila = tabla.getSelectedRow(); // Obtiene la fila seleccionada
             if (fila < 0) { JOptionPane.showMessageDialog(v, "Selecciona una fila"); return; } // Valida que haya fila seleccionada
-            OrdenMantenimiento o = Datos.ordenes.get(fila); // Obtiene la orden de esa fila
+            OrdenMantenimiento o = DatosArray.ordenes.get(fila); // Obtiene la orden de esa fila
             if (o.getTecnico() == null) { logArea.append("Asigna un técnico primero.\n"); return; } // No puede finalizar sin técnico
             o.finalizar();                       // Cambia el estado de la orden a "Finalizado"
             VistaFactura.mostrarFactura(o, v);   // Abre la ventana de factura con los datos de la orden
@@ -189,7 +187,7 @@ public class VentanaPrincipal { // Clase principal de la interfaz gráfica
     // MÉTODO — recarga la tabla con los datos actuales de Datos.ordenes
     private void actualizarTabla() {
         modelo.setRowCount(0); // Borra todas las filas actuales de la tabla para evitar duplicados
-        for (OrdenMantenimiento o : Datos.ordenes) { // Recorre cada orden guardada
+        for (OrdenMantenimiento o : DatosArray.ordenes) { // Recorre cada orden guardada
             modelo.addRow(new Object[]{ // Agrega una fila nueva con los datos de esa orden
                 o.getCliente().getNombre(),   // Nombre del cliente
                 o.getEquipo().getNombre(),    // Nombre del equipo

@@ -2,7 +2,8 @@ package Clases;
 
 import ClasesAbstractas.Equipo;
 
-public class Televisor extends Equipo {
+public class Televisor extends Equipo {    
+
     public Televisor(String nombre) {
         super(nombre, "Televisor");
     }

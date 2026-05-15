@@ -19,12 +19,14 @@ public abstract class Equipo implements Mantenible {
         return tipo;
     }
 
-    public void iniciarMantenimiento() {
+    public void iniciarMantenimiento() { // ESTA ES HEREDADA DE LA INTERFAZ MANTENIBLE 
+                                        // TODOS LOS EQUIPOS PUEDEN INICIAR MANTENIMIENTO, ASI QUE SE IMPLEMENTA AQUI
         estado = "En mantenimiento";
     }
 
-    public void finalizarMantenimiento() {
-        estado = "Listo";
+    public void finalizarMantenimiento() { // ESTA ES HEREDADA DE LA INTERFAZ MANTENIBLE
+                                           // TODOS LOS EQUIPOS PUEDEN FINALIZAR MANTENIMIENTO, ASI QUE SE IMPLEMENTA AQUI
+   estado = "Listo";
     }
 
     public String getNombre() {

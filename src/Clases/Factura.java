@@ -2,7 +2,6 @@ package Clases;
 
 import Interfaces.Calculable;
 import Interfaces.Reportable;
-
 import java.io.File;
 import java.io.FileWriter;
 
@@ -43,7 +42,7 @@ public class Factura implements Calculable, Reportable {
         System.out.println("Factura: $" + costo);
     }
 
-    // GENERAR FACTURA EN ARCHIVO .TXT
+    // GENERAR FACTURA EN ARCHIVO .TXT 
     public void generarFactura(String nombreArchivo, OrdenMantenimiento orden) {
 
         try {

@@ -4,8 +4,8 @@ import Interfaces.Notificable;
 import Interfaces.Reportable;
 
 public class Notificacion implements Notificable, Reportable {
-
-    public void enviar() {
+// ESTO SON MENSAJES EN CONSOLA
+     public void enviar() {
         System.out.println("Notificación enviada");
     }
 
@@ -17,4 +17,7 @@ public class Notificacion implements Notificable, Reportable {
     public void generarReporte() {
         System.out.println("Reporte de notificación");
     }
+    
+
+    
 }

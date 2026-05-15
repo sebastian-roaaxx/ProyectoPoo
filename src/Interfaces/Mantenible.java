@@ -1,5 +1,5 @@
 package Interfaces;
-public interface Mantenible {
+public interface Mantenible { 
     void iniciarMantenimiento();
     void finalizarMantenimiento();
 }
