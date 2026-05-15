@@ -1,10 +1,10 @@
 <mxfile host="65bd71144e">
     <diagram name="UML Refinado" id="0">
-        <mxGraphModel dx="2220" dy="2722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1332" dy="2101" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="141" value="Clases" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#777777;fontSize=17;fontStyle=1;container=0;" vertex="1" parent="1">
+                <mxCell id="141" value="UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#777777;fontSize=17;fontStyle=1;container=0;" parent="1" vertex="1">
                     <mxGeometry x="1003.33" y="1130" width="540" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" value="Clases Abstractas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#777777;fontSize=17;fontStyle=1;container=0;" parent="1" vertex="1">
@@ -32,18 +32,13 @@
                     <mxGeometry x="96.875" y="572" width="106.5625" height="50.2857142857143" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" value="Clases" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#777777;fontSize=17;fontStyle=1;container=0;" parent="1" vertex="1">
-                    <mxGeometry x="960" y="50" width="630" height="1050" as="geometry"/>
+                    <mxGeometry x="960" y="50" width="540" height="1050" as="geometry"/>
                 </mxCell>
                 <mxCell id="125" value="" style="endArrow=block;endFill=0;strokeWidth=1.6;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="100" target="113" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="126" value="" style="endArrow=block;endFill=0;strokeWidth=1.6;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="104" target="116" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="127" value="" style="endArrow=block;endFill=0;strokeWidth=1.6;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" target="111" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="1408.1008293838863" y="420" as="sourcePoint"/>
-                    </mxGeometry>
                 </mxCell>
                 <mxCell id="128" value="" style="dashed=1;endArrow=block;endFill=0;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="106" target="118" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -94,13 +89,13 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="101" value="&lt;div style=&#39;text-align:center;&#39;&gt;&lt;b&gt;AsignadorTecnico&lt;/b&gt;&lt;/div&gt;&lt;hr size=&#39;2&#39;/&gt; &lt;hr size=&#39;2&#39;/&gt;+ asignar() : Tecnico&lt;br/&gt;+ asignar() : Tecnico" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#444444;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
-                    <mxGeometry x="1410" y="80" width="122.22" height="120" as="geometry"/>
+                    <mxGeometry x="1286.39" y="910" width="122.22" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="102" value="&lt;div style=&#39;text-align:center;&#39;&gt;&lt;b&gt;Computador&lt;/b&gt;&lt;/div&gt;&lt;hr size=&#39;2&#39;/&gt; &lt;hr size=&#39;2&#39;/&gt;+ tipo() : void" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#444444;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
-                    <mxGeometry x="1158.6100000000001" y="92" width="91.39" height="78" as="geometry"/>
+                    <mxGeometry x="1249.45" y="92" width="91.39" height="78" as="geometry"/>
                 </mxCell>
                 <mxCell id="104" value="&lt;div style=&#39;text-align:center;&#39;&gt;&lt;b&gt;Empresa&lt;/b&gt;&lt;/div&gt;&lt;hr size=&#39;2&#39;/&gt;- nit : String&lt;hr size=&#39;2&#39;/&gt;+ mostrarInfo() : void" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#444444;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
-                    <mxGeometry x="1176.67" y="332" width="123.33" height="98" as="geometry"/>
+                    <mxGeometry x="1310" y="390" width="123.33" height="98" as="geometry"/>
                 </mxCell>
                 <mxCell id="106" value="&lt;div style=&#39;text-align:center;&#39;&gt;&lt;b&gt;Factura&lt;/b&gt;&lt;/div&gt;&lt;hr size=&#39;2&#39;/&gt;- costo : double&lt;hr size=&#39;2&#39;/&gt;+ calcularCosto() : double&lt;br/&gt;+ calcularCosto() : double&lt;br/&gt;+ generarReporte() : void&lt;br/&gt;+ generarFactura() : void" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#444444;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
                     <mxGeometry x="1025" y="510" width="93.88888888888887" height="190" as="geometry"/>
@@ -109,7 +104,7 @@
                     <mxGeometry x="1019.58" y="200" width="100.42" height="78" as="geometry"/>
                 </mxCell>
                 <mxCell id="108" value="&lt;div style=&#39;text-align:center;&#39;&gt;&lt;b&gt;Notificacion&lt;/b&gt;&lt;/div&gt;&lt;hr size=&#39;2&#39;/&gt; &lt;hr size=&#39;2&#39;/&gt;+ enviar() : void&lt;br/&gt;+ enviar() : void&lt;br/&gt;+ generarReporte() : void" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#444444;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
-                    <mxGeometry x="1003.33" y="302" width="116.67" height="100" as="geometry"/>
+                    <mxGeometry x="1040" y="328" width="116.67" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="109" value="&lt;div style=&#39;text-align:center;&#39;&gt;&lt;b&gt;OrdenMantenimiento&lt;/b&gt;&lt;/div&gt;&lt;hr size=&#39;2&#39;/&gt;- cliente : Usuario&lt;br/&gt;- equipo : Equipo&lt;br/&gt;- tecnico : Tecnico&lt;br/&gt;- presupuesto : double&lt;br/&gt;- problema : String&lt;br/&gt;- prioridad : String&lt;hr size=&#39;2&#39;/&gt;+ asignarTecnico() : void&lt;br/&gt;+ iniciar() : void&lt;br/&gt;+ iniciar() : void&lt;br/&gt;+ finalizar() : void&lt;br/&gt;+ calcularCosto() : double&lt;br/&gt;+ calcularCostoConDescuento() : double&lt;br/&gt;+ setPrioridad() : void&lt;br/&gt;+ generarReporte() : void&lt;br/&gt;+ getEstado() : String&lt;br/&gt;+ getTecnico() : Tecnico" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#444444;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
                     <mxGeometry x="1017.78" y="750" width="202.22" height="330" as="geometry"/>
@@ -118,10 +113,10 @@
                     <mxGeometry x="1189.9966666666664" y="600" width="75.83333333333333" height="98" as="geometry"/>
                 </mxCell>
                 <mxCell id="111" value="&lt;div style=&#39;text-align:center;&#39;&gt;&lt;b&gt;Tecnico&lt;/b&gt;&lt;/div&gt;&lt;hr size=&#39;2&#39;/&gt;# nombre : String&lt;br/&gt;# experiencia : int&lt;br/&gt;# tarifa : double&lt;br/&gt;# especialidad : String&lt;hr size=&#39;2&#39;/&gt;+ getTarifa() : double&lt;br/&gt;+ getExperiencia() : int&lt;br/&gt;+ getNombre() : String&lt;br/&gt;+ getEspecialidad() : String&lt;br/&gt;+ reparar() : void" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#444444;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
-                    <mxGeometry x="1400" y="480" width="178.33" height="224" as="geometry"/>
+                    <mxGeometry x="1300" y="620" width="178.33" height="224" as="geometry"/>
                 </mxCell>
                 <mxCell id="112" value="&lt;div style=&#39;text-align:center;&#39;&gt;&lt;b&gt;Televisor&lt;/b&gt;&lt;/div&gt;&lt;hr size=&#39;2&#39;/&gt; &lt;hr size=&#39;2&#39;/&gt;+ tipo() : void" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#444444;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
-                    <mxGeometry x="1212.78" y="188.16" width="101.39" height="98" as="geometry"/>
+                    <mxGeometry x="1265.83" y="250" width="101.39" height="98" as="geometry"/>
                 </mxCell>
                 <mxCell id="123" value="&lt;div style=&#39;text-align:center;&#39;&gt;&lt;b&gt;VentanaPrincipal&lt;/b&gt;&lt;/div&gt;&lt;hr size=&#39;2&#39;/&gt;- modelo : DefaultTableModel&lt;br/&gt;- v : JFrame&lt;br/&gt;- logArea : JTextArea&lt;hr size=&#39;2&#39;/&gt; " style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#444444;fontSize=11;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
                     <mxGeometry x="1350" y="1175" width="160" height="100" as="geometry"/>
