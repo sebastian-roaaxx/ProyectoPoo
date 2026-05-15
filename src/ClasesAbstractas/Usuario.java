@@ -1,6 +1,6 @@
 package ClasesAbstractas;
 
-public abstract class Usuario {
+public abstract class Usuario { // ESTA CLASE ES PADRE
     protected String nombre;
     protected String id;
 

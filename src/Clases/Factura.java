@@ -16,13 +16,12 @@ public class Factura implements Calculable, Reportable {
     }
 // 
     // Constructor vacío
-    // this(0) llama al constructor de arriba enviando 0
     public Factura() {
         this(0);
     }
 
-    // IMPLEMENTACIÓN DE INTERFAZ
-    // Devuelve el costo de la factura
+    // IMPLEMENTACIÓN DE LA INTERFAZ CALCULABLE
+   
     public double calcularCosto() {
         return costo;
     }
@@ -30,14 +29,12 @@ public class Factura implements Calculable, Reportable {
     // SOBRECARGA DE MÉTODO
     // Mismo método pero con parámetro
     public double calcularCosto(double descuento) {
-
         // Retorna costo con descuento
         return costo - descuento;
     }
 
-    // IMPLEMENTACIÓN DE INTERFAZ REPORTABLE ESTO ES EN CONSOLA
+    // IMPLEMENTACIÓN DE LA INTERFAZ REPORTABLE ESTO ES EN CONSOLA
     public void generarReporte() {
-
         // Imprime factura en consola
         System.out.println("Factura: $" + costo);
     }

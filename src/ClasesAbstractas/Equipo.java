@@ -2,7 +2,7 @@ package ClasesAbstractas;
 
 import Interfaces.Mantenible;
 
-public abstract class Equipo implements Mantenible {
+public abstract class Equipo implements Mantenible { // ESTA CLASE ES PADRE
     protected String nombre;
     protected String estado;
     protected String tipo; // Nueva: tipo de equipo
