@@ -4,12 +4,13 @@ public abstract class Usuario {
     protected String nombre;
     protected String id;
 
-    public Usuario(String nombre, String id) {
+    public Usuario(String nombre, String id) { // ESTE ES EL CONSTRUCTOR DE USUARIO,
+                                                //  LOS DEMÁS USUARIOS (CLIENTES Y TECNICOS) LO HEREDAN
         this.nombre = nombre;
         this.id = id;
     }
 
-    public String getNombre() {
+    public String getNombre() {  
         return nombre;
     }
 

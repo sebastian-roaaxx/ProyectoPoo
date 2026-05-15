@@ -1,5 +1,5 @@
 package Interfaces;
 
-public interface Notificable {
+public interface Notificable { 
     void enviar();
 }

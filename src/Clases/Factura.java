@@ -35,7 +35,7 @@ public class Factura implements Calculable, Reportable {
         return costo - descuento;
     }
 
-    // IMPLEMENTACIÓN DE INTERFAZ Reportable
+    // IMPLEMENTACIÓN DE INTERFAZ REPORTABLE ESTO ES EN CONSOLA
     public void generarReporte() {
 
         // Imprime factura en consola

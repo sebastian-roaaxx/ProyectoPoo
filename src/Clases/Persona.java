@@ -1,6 +1,6 @@
 package Clases;
 
-import ClasesAbstractas.Usuario;
+import ClasesAbstractas.Usuario;  // LOCALIZA LA CLASE USUARIO
 
 public class Persona extends Usuario {                  // La clase Persona HEREDA de Usuario, lo que significa que tiene
                                                                 // todos los atributos y métodos de Usuario.

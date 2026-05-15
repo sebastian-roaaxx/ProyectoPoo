@@ -9,7 +9,7 @@ import Interfaces.*;
 
 
 public class OrdenMantenimiento extends OrdenBase
-implements Asignable, Calculable, Priorizable, Reportable {  // SOLO USA ALGUNAS INTERFACES, NO TODAS
+implements Asignable, Calculable, Priorizable, Reportable {  // SOLO USA ALGUNAS INTERFACES, NO TODAS Y ES HERENCIA MULTIPLE.
 
     // Guarda el cliente dueño de la orden.
     private Usuario cliente;
@@ -48,10 +48,10 @@ implements Asignable, Calculable, Priorizable, Reportable {  // SOLO USA ALGUNAS
         this(c, e, 0);
     }
 
-    // Método encargado de asignar un técnico.
+    // Método encargado de asignar un técnico DE LA INTERFAZ ASIGNABLE.
     public void asignarTecnico(Tecnico t) {
         if (t == null)
-            throw new IllegalArgumentException("Sin técnico"); // THROW ES EXEPCCION Y NO SE EJECUTA EL PROGRAMA
+            throw new IllegalArgumentException("Sin técnico"); // THROW ES EXEPCCION Y NO SE EJECUTA EL PROGRAMA EN GENERAL
         tecnico = t;
     }
 
@@ -88,16 +88,16 @@ implements Asignable, Calculable, Priorizable, Reportable {  // SOLO USA ALGUNAS
         return presupuesto; // En este caso, el costo es igual al presupuesto registrado.       
     }
 
-    // Método adicional para calcular descuento este metodo es específico de esta clase, no es parte de la interfaz Calculable
-    // Si el presupuesto supera 100000:
+    // Método adicional para calcular descuento este metodo es específico de esta clase
+    // NO ES DE LA INTERFAZ CALCULABLE
     // aplica descuento del 5%.
     public double calcularCostoConDescuento() {
-      // LA VARIABLE EMPIEZA EN 0
+      // LA VARIABLE EMPIEZA EN 0 SIEMPRE
         double descuento = 0;
         if (presupuesto > 100000) {
             descuento = presupuesto * 0.05;
         }
-        return presupuesto - descuento;
+        return presupuesto - descuento; // DEVUELVE DOUBLE CON EL DESCUENTO APLICADO SI CORRESPONDE
     }
 
     // Permite modificar la prioridad manualmente.
